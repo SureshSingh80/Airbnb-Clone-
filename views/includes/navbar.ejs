@@ -1,0 +1,119 @@
+<style>
+  .search-btn
+{
+   background-color: #fe424d;
+   color:#fff;
+   border-radius:25px;
+   padding:0 1rem 0 1rem;
+}
+.search-btn:hover 
+{
+  background-color: #fe424d;
+   color:#fff;
+}
+.search-btn i
+{
+  display: inline;
+  margin-right:0.5rem;
+}
+.search-input
+{
+  border-radius: 25px;
+  padding:0.5rem 3rem 0.5rem 3rem;
+  font-size:0.9rem;
+  margin-right:0.5rem;
+}
+.login,.logout
+{
+  
+  background-color: green;
+  color:white !important;
+  border-radius:10px;
+  
+}
+.signUp
+{
+  background-color: rgb(22, 22, 21);
+  color:white !important;
+  border-radius:10px;
+  margin-right:0.5rem;
+}
+.add-listings
+{
+   background-color: rgb(194, 185, 185);
+   
+   border-radius:10px;
+   margin-right:0.5rem;
+
+
+
+}
+.add-listings i 
+{
+   position:relative;
+   top:1px;
+}
+
+/* responsiveness */
+@media (max-width:795px){
+  .search-input{
+     padding:0.5rem;
+  }
+}
+@media (max-width:767px){
+   .explore
+   {
+     position:absolute;
+     top:0.5rem;
+     left:4rem;
+   }
+}
+</style>
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+      <!-- <a class="nav-link explore-tag" href="/listings">Explore</a> -->
+      <a class="navbar-brand"  href="/listings"><i class="fa-regular fa-compass"></i></a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+        <div class="navbar-nav">
+          <a class="nav-link explore"  href="/listings">Explore</a>
+          
+        </div>
+      
+        <!-- search option -->
+       <div class="navbar-nav ms-auto">
+        <form  method="post" action="/listings/search" class="d-flex" role="search">
+          <!-- <input class="form-control me-2 search-input" type="search" placeholder="Search destination"> -->
+           <select name="location" id="" class="form-control search-input" >
+            <option name="" value="0">Search your destination</option>
+             <option name="Malibu" value="Malibu">Malibu</option>
+             <option name="New York City" value="New York City">NewYork City</option>
+             <option name="Portland" value="Portland">portLand</option>
+             <option name="Fiji" value="Fiji">Fiji</option>
+             <option name="Dubai" value="Dubai">Dubai</option>
+           </select>
+          <button class="btn search-btn" type="submit"><i class="fa fa-magnifying-glass"></i>Search</button>
+        </form>
+      </div>
+
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link add-listings" href="/listings/new">Add New Listings <i class="fa-regular fa-plus"></i></a>
+          <% if(!currUser){%>
+
+             <a class="nav-link signUp" href="/signup">SignUp</a>
+             <a class="nav-link login" href="/login">Login</a>
+
+           <%}%>
+           <% if(currUser){%>
+             <a class="nav-link logout" href="/logout">Logout</a>
+           <%}%>
+           
+        </div>
+
+      </div>
+    </div>
+  </nav>
